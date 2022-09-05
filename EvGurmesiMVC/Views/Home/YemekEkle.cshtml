@@ -1,0 +1,37 @@
+﻿@model IEnumerable<EvGurmesiMVC.Models.SistemYemek>
+@{
+    ViewBag.Title = "YemekEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+<form class="form-group" method="post">
+    <div class="justify-content-center">
+        <img src="@item.SistemYemekResim" style="max-width:200px" class="img-thumbnail">
+        <br /><br />
+        <input class="form-control" type="text" value="@item.SistemYemekID" aria-label="readonly input example" name="SistemYemekID" hidden="hidden" readonly />
+        <input class="form-control" type="text" value="@Session["MenuNo"]" aria-label="readonly input example" name="MenuNo" hidden="hidden" readonly />
+        <input class="form-control" type="text" value="@item.SistemYemekAdi" aria-label="readonly input example" name="SistemYemekAdi" readonly>
+        <br />
+        <input class="form-control" type="text" value="@item.SistemYemekicerik" aria-label="readonly input example" name="SistemYemekicerik" readonly>
+        <br />
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Eklediğiniz diğer malzemeleri giriniz.</label>
+            <textarea class="form-control" name="KullaniciYemekicerik" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <br />
+        <div class="form-check pl-5">
+            <input class="form-check-input" type="checkbox" value="true" name="Glutensiz" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Glutensiz
+            </label>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-success">Ekle</button>
+    </div>
+    
+</form>
+    
+}
+

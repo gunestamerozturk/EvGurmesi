@@ -1,0 +1,94 @@
+﻿@model IEnumerable<EvGurmesiMVC.Models.KullaniciYemek>
+@{
+    ViewBag.Title = "MenuDuzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Table 06</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/table-06/css/style.css">
+
+</head>
+<body>
+    <div class="row justify-content-center">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" class="form-group">
+                <div class="row justify-content-between">
+                    <div class="col-md-3 pl-2">
+                        <label>Menü Adı :</label>
+                        <input type="text" class="enjoy-css-input" name="MenuAd" value="@Session["MenuAd"]" />
+                    </div>
+                    <div class="col-md-2 pl-2">
+                        <label>Menü Adeti :</label>
+                        <input type="number" class="enjoy-css-input" name="MenuAdet" value="@Session["MenuAdet"]" />
+                    </div>
+                    <div class="col-md-2 pl-2">
+                        <label>Menü Fiyatı :</label>
+                        <input type="number" class="enjoy-css-input" name="MenuFiyat" value="@Session["MenuFiyat"]" />
+                    </div>
+                </div>
+                <br />
+                <div class="form-check pl-5">
+                    <input class="form-check-input" type="checkbox" value="true" name="MenuAktif" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Menü Aktif
+                    </label>
+                </div>
+                <div class="row justify-content-center">
+                    <div>
+                        <button type="submit" class="btn btn-info">Bilgileri Güncelle</button>
+                    </div>
+                </div>
+
+
+                <hr />
+                <br />
+            </form>
+            <table class="table">
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr class="alert" role="alert">
+                        <td>
+                            <div class="img" style="background-image: url(@item.SistemYemek.SistemYemekResim);"></div>
+                        </td>
+                        <td>
+                            <div class="email">
+                                <span>@item.SistemYemek.SistemYemekAdi</span>
+                                <span>@item.SistemYemek.SistemYemekicerik, @item.KullaniciYemekicerik</span>
+                            </div>
+                        </td>
+                        <td>
+                            @if (item.Menu.Glutensiz == "true")
+                            {<span class="active">Glutensiz</span>}
+                        </td>
+                        <td><a href="/Home/YemekSil/@item.KullaniciYemekID" class="btn btn-danger btn-sm">Sil</a></td>
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+                    
+            <a href="/Home/MenuYemekSec" class="btn btn-success">Yemek Ekle</a>
+        </div>
+    </div>
+
+    <script src="~/table-06/js/jquery.min.js"></script>
+    <script src="~/table-06/js/popper.js"></script>
+    <script src="~/table-06/js/bootstrap.min.js"></script>
+    <script src="~/table-06/js/main.js"></script>
+
+</body>
+</html>
+

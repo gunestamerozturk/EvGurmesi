@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EvGurmesiMVC.Models.Siparisler>
+@{
+    ViewBag.Title = "Siparisler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+<div class="container" style="background-color:whitesmoke">
+        <div class="row pt-2 justify-content-around">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="footer__about">
+                    <ul>
+                        <li>@item.SaticiKullanici.KullaniciPazarAdi</li>
+                        <hr />
+                        <li>@item.AliciKullanici.KullaniciAdres</li>
+                        <li>@item.AliciKullanici.Kullaniciilce/@item.AliciKullanici.KullaniciSehir</li>
+                        <li>@item.AliciKullanici.KullaniciTelefon</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                <div class="footer__widget">
+                    <ul>
+                        <li><a href="#">Adet : @item.SiparisAdet</a></li>
+                        <li><a href="#">Ücret : @item.SiparisToplam ₺</a></li>
+                        <li><a href="#">@item.SiparisTarih</a></li>
+                        <li><a href="#">@item.SiparisDurum</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="footer__widget">
+                    <ul>
+                        <li>Menü</li>
+                        <p>@item.Siparisicerik</p>
+                    </ul>
+                </div>
+            </div>
+             <p>Puan : @item.SiparisPuan</p>
+            <p><a class="btn btn-outline-success btn-sm" href="/Home/SiparisDetay/@item.SiparisID">Sipariş Detay</a></p>
+            <p>Yorum : @item.SiparisYorum</p>
+
+        </div>
+    <hr />
+</div>
+
+}
+

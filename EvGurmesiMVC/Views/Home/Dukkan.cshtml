@@ -1,0 +1,47 @@
+﻿@model IEnumerable<EvGurmesiMVC.Models.Kullanici>
+@{
+    ViewBag.Title = "Dukkan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+      @foreach (var item in Model)
+      {
+<form method="post">
+    <div class="form-group">
+        <span class="col-md-1 col-md-offset-2 text-center"><label>Dükkan Adınız:</label></span>
+        <div class="col-md-8">
+            <input type="text" placeholder="@item.KullaniciPazarAdi" class="form-control" name="KullaniciPazarAdi" value="@item.KullaniciPazarAdi">
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <span class="col-md-1 col-md-offset-2 text-center"><label>Satıcı Tipi</label></span>
+        <div class="pl-3">
+            <select class="form-select form-select-sm" name="KullaniciTipi" aria-label=".form-select-sm example">
+                <option selected>@item.KullaniciTipi</option>
+                <option value="Normal">Normal</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Vejetaryen">Vejetaryen</option>
+            </select>
+        </div>
+    </div>
+    <br /><br />
+    <br />
+    <div class="form-group">
+        <span class="col-md-1 col-md-offset-2 text-center"><label class="pt-3">*Değişiklikleri uygulamadan önce seçiniz.</label></span>
+        <select class="form-select form-select-sm" name="KullaniciAktif" aria-label=".form-select-sm example">
+            <option selected>Dükkan Aç/Kapat</option>
+            <option value="True">Dükkan Açık</option>
+            <option value="False">Dükkan Kapalı</option>
+        </select>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info">Değişiklikleri Uygula</button>
+    </div>
+</form>
+    
+    
+       }
+

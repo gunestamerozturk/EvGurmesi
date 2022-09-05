@@ -1,0 +1,86 @@
+﻿@model IEnumerable<EvGurmesiMVC.Models.Kullanici>
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-sm">
+                    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                        <fieldset>
+                            
+                            <div class="form-group">
+                                <div class="row">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><label>Resim</label></span>
+                                    <div class="col-md-2">
+                                        <img src="@item.KullaniciResim" alt="" class="img-fluid" style="max-width:11rem">
+                                    </div>
+                                    <input type="file" class="form-control-file" value="@item.KullaniciResim" name="KullaniciResim">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><label>İsim</label></span>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="@item.KullaniciAd" class="form-control" name="KullaniciAd" value="@item.KullaniciAd">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><label>Soyisim</label></span>
+                                <div class="col-md-8">
+                                    <input <input type="text" placeholder="@item.KullaniciSoyad" class="form-control" name="KullaniciSoyad" value="@item.KullaniciSoyad">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><label>E-posta</label></span>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="@item.KullaniciMail" class="form-control" name="KullaniciMail" value="@item.KullaniciMail">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><label>Telefon</label></span>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="@item.KullaniciTelefon" class="form-control" name="KullaniciTelefon" value="@item.KullaniciTelefon">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><label>Şehir</label></span>
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="@item.KullaniciSehir" class="form-control" name="KullaniciSehir" value="@item.KullaniciSehir">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><label>İlçe</label></span>
+                                <div class="col-md-8">
+                                    <input id="phone" type="text" placeholder="@item.Kullaniciilce" class="form-control" name="Kullaniciilce"value="@item.Kullaniciilce">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><label>Adres</label></span>
+                                <div class="col-md-8">
+                                    <textarea class="form-control" id="message" name="KullaniciAdres" placeholder="@item.KullaniciAdres" rows="7">@item.KullaniciAdres</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Bilgileri Güncelle</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EvGurmesiMVC.Models.Kullanici>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Table 05</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/table-05/css/style.css">
+
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-responsive-xl">
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="alert" role="alert">
+                            <td class="d-flex align-items-center">
+                                <div class="img" style="background-image: url(@item.KullaniciResim);"></div>
+                                <div class="pl-3 email">
+                                    <a href="/Home/Satici/@item.KullaniciID">
+                                        <span><b style="color:darkslategrey">@item.KullaniciPazarAdi</b></span>
+                                    </a>
+                                    <span>@item.KullaniciSehir/@item.Kullaniciilce</span>
+                                </div>
+                            </td>
+                            <td>
+                                <b>@item.KullaniciPuan</b>
+                            </td>
+                            <td class="status">
+                                    @if (item.KullaniciYemeks.Count != 0 && item.KullaniciYemeks.Where(x=>x.Menu!=null).Select(y => y.Menu.Glutensiz).First() == "true")
+                                    {
+                                        <span class="active">Glutensiz</span>
+                                     }
+                            </td>
+                            <td class="status">
+                                @if (item.KullaniciTipi == "Normal")
+                                {<span class="waiting">@item.KullaniciTipi</span>} @if (item.KullaniciTipi == "Vegan" || item.KullaniciTipi == "Vejetaryen")
+                            {<span class="active">@item.KullaniciTipi</span>}
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+
+    <script src="~/table-05/js/jquery.min.js"></script>
+    <script src="~/table-05/js/popper.js"></script>
+    <script src="~/table-05/js/bootstrap.min.js"></script>
+    <script src="~/table-05/js/main.js"></script>
+
+</body>
+</html>
+

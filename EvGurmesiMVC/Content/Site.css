@@ -1,0 +1,84 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.css-input {
+    padding: 0px;
+    font-size: 14px;
+    border-width: 0px;
+    border-color: #CCCCCC;
+    background-color: #FFFFFF;
+    color: #000000;
+    border-style: double;
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px rgba(66,66,66,.0);
+    text-shadow: 0px 0px 5px rgba(66,66,66,.75);
+}
+
+    .css-input:focus {
+        outline: none;
+    }
+
+.enjoy-css-input {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px 20px;
+    border: none;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font: normal normal bold 14px/normal Arial, Helvetica, sans-serif;
+    color: rgb(0, 142, 198);
+    text-decoration: underline;
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+.enjoy-css-input-2 {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px 20px;
+    border: none;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font: normal 10px/normal Arial, Helvetica, sans-serif;
+    color: rgba(0,142,198,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+}
+.enjoy-css-input-3 {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px 20px;
+    border: 1px solid #b7b7b7;
+    font: normal 11px/normal Arial, Helvetica, sans-serif;
+    color: rgba(0,142,198,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+}

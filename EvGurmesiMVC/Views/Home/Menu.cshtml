@@ -1,0 +1,75 @@
+﻿@model IEnumerable<EvGurmesiMVC.Models.Menu>
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Table 06</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/table-06/css/style.css">
+
+</head>
+<body>
+            <div class="row justify-content-center">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                        <table class="table">
+                            <thead class="thead-primary">
+                                <tr>
+
+                                    <th>&nbsp;</th>
+                                    <th>Fiyat</th>
+                                    <th>Adet</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>Aktif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr class="alert" role="alert">
+                                    <td>
+                                        <div class="email">
+                                            <span><a href="/Home/MenuDuzenle/@item.MenuID">@item.MenuAd</a></span>
+                                        </div>
+                                    </td>
+                                    <td>@item.MenuFiyat₺</td>
+                                    <td>@item.MenuAdet</td>
+                                    <td>
+                                        <a href="/Home/MenuSil/@item.MenuID" class="btn btn-danger">Sil</a>
+                                    </td>
+                                    <td>
+                                        <a href="/Home/MenuDuzenle/@item.MenuID" class="btn btn-info">Düzenle</a>
+                                    </td>
+                                    <td>
+                                        @item.MenuAktif
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div><a href="/Home/Menuekle" class="btn btn-secondary">Menü Ekle</a></div>
+                    
+                </div>
+            </div>
+
+    <script src="~/table-06/js/jquery.min.js"></script>
+    <script src="~/table-06/js/popper.js"></script>
+    <script src="~/table-06/js/bootstrap.min.js"></script>
+    <script src="~/table-06/js/main.js"></script>
+
+</body>
+</html>
+
+

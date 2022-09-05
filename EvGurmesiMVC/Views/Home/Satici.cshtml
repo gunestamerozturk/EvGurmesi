@@ -1,0 +1,91 @@
+﻿@model EvGurmesiMVC.Models.MenuViewModel
+@{
+    ViewBag.Title = "Satici";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Table 06</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/table-06/css/style.css">
+
+</head>
+<body>
+    
+            <div class="row justify-content-center">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @foreach (var item in Model.Menu)
+                    {
+                    <form class="form-group" method="post">
+
+                        <input type="number" value="@item.MenuID" hidden="hidden" name="id" />
+
+                        <table class="table">
+                            <thead class="thead-primary">
+                                <tr>
+
+                                    <th>&nbsp;</th>
+                                    <th>@item.MenuAd</th>
+                                    <th>
+                                        @if (item.Glutensiz=="true")
+                                        {<span class="active">Glutensiz</span>}
+                                    </th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+
+                                @foreach (var item2 in Model.KullaniciYemek.Where(x => x.Menu.MenuID == item.MenuID))
+                                {
+                                    <tr class="alert" role="alert">
+                                        <td>
+                                            <div class="img" style="background-image: url(@item2.SistemYemek.SistemYemekResim);"></div>
+                                        </td>
+                                        <td>
+                                            <div class="email">
+                                                <span>@item2.SistemYemek.SistemYemekAdi</span>
+                                                <span>@item2.SistemYemek.SistemYemekicerik, @item2.KullaniciYemekicerik</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                            <tfoot>
+                            <td>Menü Fiyatı</td>
+                            <td>@item.MenuFiyat ₺</td>
+                            <td>Siparis Adeti : <input type="number" name="Adet" class="form-control" /></td>
+
+                            <td>
+                                <div class="col-md-2"><button type="submit" class="btn btn-sm btn-success">+</button></div>
+                            </td>
+
+
+                            </tfoot>
+                        </table>
+                    </form>
+                            }
+                        
+                    </div>
+            </div>
+
+
+    <script src="~/table-06/js/jquery.min.js"></script>
+    <script src="~/table-06/js/popper.js"></script>
+    <script src="~/table-06/js/bootstrap.min.js"></script>
+    <script src="~/table-06/js/main.js"></script>
+
+</body>
+</html>

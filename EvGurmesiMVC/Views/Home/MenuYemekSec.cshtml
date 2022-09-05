@@ -1,0 +1,69 @@
+﻿@model IEnumerable<EvGurmesiMVC.Models.SistemYemek>
+@{
+    ViewBag.Title = "MenuYemekSec";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Table 06</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/table-06/css/style.css">
+
+</head>
+<body>
+
+    <div class="row justify-content-center">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-group" method="post">
+                <table class="table">
+                    <thead class="thead-primary">
+                        <tr>
+
+                            <th>&nbsp;</th>
+                            <th></th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="alert" role="alert">
+                                <td>
+                                    <div class="img" style="background-image: url(@item.SistemYemekResim);"></div>
+                                </td>
+                                <td>
+                                    <div class="email">
+                                        <span>@item.SistemYemekAdi</span>
+                                        <span>@item.SistemYemekicerik </span>
+                                    </div>
+                                </td>
+                                <td><a href="/Home/YemekEkle/@item.SistemYemekID" class="btn btn-success">Ekle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </form>
+
+
+        </div>
+    </div>
+
+
+    <script src="~/table-06/js/jquery.min.js"></script>
+    <script src="~/table-06/js/popper.js"></script>
+    <script src="~/table-06/js/bootstrap.min.js"></script>
+    <script src="~/table-06/js/main.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EvGurmesiMVC.Models.Siparisler>
+@{
+    ViewBag.Title = "Satislar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+
+
+    <div class="container" style="background-color:whitesmoke">
+        <div class="row pt-2">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="footer__about">
+                    <ul>
+                        <li>@item.AliciKullanici.KullaniciAd @item.AliciKullanici.KullaniciSoyad</li>
+                        <hr />
+                        <li>@item.AliciKullanici.KullaniciAdres</li>
+                        <li>@item.AliciKullanici.Kullaniciilce/@item.AliciKullanici.KullaniciSehir</li>
+                        <li>@item.AliciKullanici.KullaniciTelefon</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                <div class="footer__widget">
+                    <ul>
+                        <li><a href="#">Adet : @item.SiparisAdet</a></li>
+                        <li><a href="#">Ücret : @item.SiparisToplam ₺</a></li>
+                        <li><a href="#">@item.SiparisTarih</a></li>
+                        <hr />
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="footer__widget">
+                    <p>İçerik</p>
+                    <p>@item.Siparisicerik</p>
+                </div>
+                <hr />
+            </div>
+            <div class="row pl-4">
+                <form method="post">
+                    <input name="SiparisID" value="@item.SiparisID" hidden="hidden" readonly="readonly"/>
+                        <select class="form-select form-select-sm" name="SiparisDurum" aria-label=".form-select-sm example">
+                            <option selected>@item.SiparisDurum</option>
+                            <option value="Yolda">Yola Çıktı</option>
+                            <option value="Tamamlandı">Teslim Edildi</option>
+                            <option value="iptal">İptal Edildi</option>
+                        </select>
+                    <div><button type="submit" class="btn btn-info btn-sm">Değişikliği Onayla</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    }
+
